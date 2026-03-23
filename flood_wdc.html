@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Flood Prediction Tableau Connector</title>
+
+<script src="https://connectors.tableau.com/libs/tableauwdc-2.3.latest.js"></script>
+
+</head>
+
+<body>
+
+<h2>Flood Prediction Connector</h2>
+
+<button id="getData">Get Flood Data</button>
+
+<script>
+
+var connector = tableau.makeConnector();
+
+connector.getSchema = function(schemaCallback) {
+
+var cols = [
+{id: "latitude", dataType: tableau.dataTypeEnum.float},
+{id: "longitude", dataType: tableau.dataTypeEnum.float},
+{id: "elevation", dataType: tableau.dataTypeEnum.float},
+{id: "rainfall", dataType: tableau.dataTypeEnum.float},
+{id: "flood_probability", dataType: tableau.dataTypeEnum.float}
+];
+
+var tableSchema = {
+id: "floodPredictions",
+columns: cols
+};
+
+schemaCallback([tableSchema]);
+
+};
+
+connector.getData = function(table, doneCallback) {
+
+var lat = 29.6516;
+var lon = -82.3248;
+
+fetch("http://44.214.136.171:8000/predict_location?lat=" + lat + "&lon=" + lon)
+.then(response => response.json())
+.then(data => {
+
+var tableData = [];
+
+tableData.push({
+"latitude": lat,
+"longitude": lon,
+"elevation": data.elevation,
+"rainfall": data.rainfall,
+"flood_probability": data.flood_probability
+});
+
+table.appendRows(tableData);
+
+doneCallback();
+
+});
+
+};
+
+tableau.registerConnector(connector);
+
+document.getElementById("getData").addEventListener("click", function() {
+tableau.connectionName = "Flood Prediction Data";
+tableau.submitConnector();
+});
+
+</script>
+
+</body>
+</html>
