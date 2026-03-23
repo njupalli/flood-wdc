@@ -8,66 +8,65 @@
 
 <body>
 
-    <h2>Flood Prediction Connector</h2>
-    <button id="getData">Get Flood Data</button>
+<h2>Flood Prediction Connector</h2>
+<button id="getData">Get Flood Data</button>
 
-    <script>
-        var connector = tableau.makeConnector();
+<script>
 
-        // Define schema
-        connector.getSchema = function (schemaCallback) {
+var connector = tableau.makeConnector();
 
-            var cols = [
-                { id: "lat", dataType: tableau.dataTypeEnum.float },
-                { id: "lon", dataType: tableau.dataTypeEnum.float },
-                { id: "elevation", dataType: tableau.dataTypeEnum.float },
-                { id: "rainfall", dataType: tableau.dataTypeEnum.float },
-                { id: "flood_probability", dataType: tableau.dataTypeEnum.float }
-            ];
+connector.getSchema = function (schemaCallback) {
 
-            var tableSchema = {
-                id: "floodPredictions",
-                columns: cols
-            };
+    var cols = [
+        { id: "lat", dataType: tableau.dataTypeEnum.float },
+        { id: "lon", dataType: tableau.dataTypeEnum.float },
+        { id: "elevation", dataType: tableau.dataTypeEnum.float },
+        { id: "rainfall", dataType: tableau.dataTypeEnum.float },
+        { id: "flood_probability", dataType: tableau.dataTypeEnum.float }
+    ];
 
-            schemaCallback([tableSchema]);
-        };
+    var tableSchema = {
+        id: "floodPredictions",
+        columns: cols
+    };
 
-        // Get data from your API
-        connector.getData = function (table, doneCallback) {
+    schemaCallback([tableSchema]);
+};
 
-            fetch("http://44.214.136.171:8000/predict_grid")
-                .then(response => response.json())
-                .then(data => {
+connector.getData = function (table, doneCallback) {
 
-                    var tableData = [];
+    fetch("http://44.214.136.171:8000/predict_grid")
+        .then(response => response.json())
+        .then(data => {
 
-                    data.forEach(function (item) {
-                        tableData.push({
-                            "lat": item.lat,
-                            "lon": item.lon,
-                            "elevation": item.elevation,
-                            "rainfall": item.rainfall,
-                            "flood_probability": item.flood_probability
-                        });
-                    });
+            var tableData = [];
 
-                    table.appendRows(tableData);
-                    doneCallback();
-                })
-                .catch(error => {
-                    console.error("Error fetching data:", error);
+            data.forEach(function (item) {
+                tableData.push({
+                    "lat": item.lat,
+                    "lon": item.lon,
+                    "elevation": item.elevation,
+                    "rainfall": item.rainfall,
+                    "flood_probability": item.flood_probability
                 });
-        };
+            });
 
-        tableau.registerConnector(connector);
-
-        document.getElementById("getData").addEventListener("click", function () {
-            tableau.connectionName = "Flood Prediction Data";
-            tableau.submitConnector();
+            table.appendRows(tableData);
+            doneCallback();
+        })
+        .catch(error => {
+            console.error("Error:", error);
         });
-    </script>
+};
+
+tableau.registerConnector(connector);
+
+document.getElementById("getData").onclick = function () {
+    tableau.connectionName = "Flood Prediction Data";
+    tableau.submitConnector();
+};
+
+</script>
 
 </body>
-
 </html>
