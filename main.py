@@ -205,7 +205,7 @@ print("Emergency file created with all features!")
 # ===============================
 # 🔟 API TOOL: LIVE WEATHER DATA
 # ===============================
-API_KEY = "2e526f09c28fbc8a7699bb45329847cb"
+API_KEY = 
 LAT, LON = 26.1224, -80.1373
 base_df = pd.read_csv("florida_flood_FINAL.csv")
 
