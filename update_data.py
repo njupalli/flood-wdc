@@ -13,7 +13,7 @@ load_dotenv()
 # CONFIG  (set these in your .env file)
 # -----------------------------
 STEP       = os.getenv("FLOOD_STEP", "0.2")
-BASE_URL   = os.getenv("FLOOD_API_URL", "http://44.214.136.171:8000")
+BASE_URL   = os.getenv("FLOOD_API_URL", "http://:8000")
 URL        = f"{BASE_URL}/florida_heatmap?step={STEP}"
 
 OUTPUT_FILE = "flood_data.json"
