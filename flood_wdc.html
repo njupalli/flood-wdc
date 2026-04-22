@@ -35,7 +35,7 @@ connector.getSchema = function (schemaCallback) {
 
 connector.getData = function (table, doneCallback) {
 
-    fetch("http://44.214.136.171:8000/predict_grid")
+    fetch("http://:8000/predict_grid")
         .then(response => response.json())
         .then(data => {
 
