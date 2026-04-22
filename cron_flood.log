@@ -1,0 +1,21 @@
+2026-04-06 15:14:45,101 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-06 15:16:55,406 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-08 21:16:00,047 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-09 22:44:40,755 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-09 22:47:17,279 [INFO] Fetching heatmap data from http://localhost:8000/florida_heatmap?step=0.2
+2026-04-09 22:48:28,030 [INFO] Fetching heatmap data from http://localhost:8000/florida_heatmap?step=0.2
+2026-04-09 22:50:08,161 [INFO] Fetching heatmap data from http://localhost:8000/florida_heatmap?step=0.2
+2026-04-09 22:50:48,487 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-09 22:54:52,057 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-09 22:59:54,205 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-10 12:53:26,296 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-10 12:56:03,398 [INFO] Backed up previous data to flood_data_backup.json
+2026-04-10 12:56:03,568 [INFO]  Saved 1254 points to flood_data.json
+2026-04-13 12:59:38,849 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-13 13:00:33,516 [INFO] Backed up previous data to flood_data_backup.json
+2026-04-13 13:00:33,569 [INFO]  Saved 458 points to flood_data.json
+2026-04-13 13:09:35,089 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-13 13:09:46,945 [INFO] Backed up previous data to flood_data_backup.json
+2026-04-13 13:09:47,004 [INFO]  Saved 458 points to flood_data.json
+2026-04-17 14:45:06,292 [INFO] Fetching heatmap data from http://44.214.136.171:8000/florida_heatmap?step=0.2
+2026-04-17 14:45:06,395 [ERROR]  Server error: 404 — {"detail":"Not Found"}
