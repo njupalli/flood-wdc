@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 import time
 
-API_URL = "http://44.214.136.171:8000/predict_grid"
+API_URL = "http://:8000/predict_grid"
 
 while True:
     try:
