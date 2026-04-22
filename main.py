@@ -17,7 +17,7 @@ from datetime import datetime
 # ===============================
 # 1️⃣ LOAD DEM
 # ===============================
-dem_path = "C:/Users/jupal/Downloads/USGS_13_n26w081_20251216.tif"
+dem_path = "USGS_13_n26w081_20251216.tif"
 
 with rasterio.open(dem_path) as dem_src:
     dem = dem_src.read(1)
@@ -31,7 +31,7 @@ print("DEM shape:", dem.shape)
 # ===============================
 # 2️⃣ LOAD & ALIGN RAINFALL
 # ===============================
-rainfall_path = "C:/Users/jupal/Downloads/nws_precip_1day_20250915_conus.tif"
+rainfall_path = "nws_precip_1day_20250915_conus.tif"
 
 with rasterio.open(rainfall_path) as rf_src:
     rainfall = rf_src.read(1)
@@ -57,7 +57,7 @@ print("Rainfall aligned.")
 # ===============================
 # 3️⃣ LOAD FLOOD SHAPEFILE
 # ===============================
-flood_shp_path = "C:/Users/jupal/Downloads/12011C_20251212/S_FLD_HAZ_AR.shp"
+flood_shp_path = "12011C_20251212/S_FLD_HAZ_AR.shp"
 
 flood = gpd.read_file(flood_shp_path)
 flood = flood.to_crs(dem_crs)
@@ -81,7 +81,7 @@ print("Flood labels created.")
 # ===============================
 # 4️⃣ LOAD & ALIGN IMPERVIOUS
 # ===============================
-impervious_path = "C:/Users/jupal/Downloads/Annual_NLCD_FctImp_2024_CU_C1V1/Annual_NLCD_FctImp_2024_CU_C1V1.tif"
+impervious_path = "Annual_NLCD_FctImp_2024_CU_C1V1/Annual_NLCD_FctImp_2024_CU_C1V1.tif"
 
 with rasterio.open(impervious_path) as imp_src:
     left, bottom, right, top = rasterio.transform.array_bounds(
